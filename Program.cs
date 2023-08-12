@@ -1,3 +1,4 @@
 ﻿using leetcode.easy;
+using leetcode.medium;
 
-ContainsDuplicate.Test();
+KFrequentElement.Test();
