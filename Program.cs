@@ -1,3 +1,5 @@
-﻿using leetcode.easy;
+﻿// using leetcode.easy;
+using leetcode.easy;
+using leetcode.interview;
 
-DistinctPairs.Test();
+StringOccurence.Test();

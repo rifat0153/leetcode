@@ -5,6 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "C#: leetcode Debug",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/leetcode.csproj"
+        },
+        {
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach"
