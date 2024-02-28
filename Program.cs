@@ -1,6 +1,7 @@
 ﻿// using leetcode.easy;
 using leetcode.easy;
-using leetcode.interview;
 using leetcode.medium;
+using leetcode.hard;
+using leetcode.interview;
 
-ThreeSum.Test();
+TrappingRainWater.Test();
