@@ -1,102 +1,74 @@
-namespace leetcode.medium;
+﻿namespace ConsoleApp1.Medium;
 
-public class ValidSudoku
+internal static class ValidSudoku
 {
     public static void Test()
     {
-        char[][] board1 = [['5','3','.','.','7','.','.','.','.']
-                            ,['6','.','.','1','9','5','.','.','.']
-                            ,['.','9','8','.','.','.','.','6','.']
-                            ,['8','.','.','.','6','.','.','.','3']
-                            ,['4','.','.','8','.','3','.','.','1']
-                            ,['7','.','.','.','2','.','.','.','6']
-                            ,['.','6','.','.','.','.','2','8','.']
-                            ,['.','.','.','4','1','9','.','.','5']
-                            ,['.','.','.','.','8','.','.','7','9']];
+        char[][] board =
+        [
+            ['5', '3', '.', '.', '7', '.', '.', '.', '.'],
+            ['6', '.', '.', '1', '9', '5', '.', '.', '.'],
+            ['.', '9', '8', '.', '.', '.', '.', '6', '.'],
+            ['8', '.', '.', '.', '6', '.', '.', '.', '3'],
+            ['4', '.', '.', '8', '.', '3', '.', '.', '1'],
+            ['7', '.', '.', '.', '2', '.', '.', '.', '6'],
+            ['.', '6', '.', '.', '.', '.', '2', '8', '.'],
+            ['.', '.', '.', '4', '1', '9', '.', '.', '5'],
+            ['.', '.', '.', '.', '8', '.', '.', '7', '9'],
+        ];
 
-        char[][] board2 = [['8','3','.','.','7','.','.','.','.']
-                            ,['6','.','.','1','9','5','.','.','.']
-                            ,['.','9','8','.','.','.','.','6','.']
-                            ,['8','.','.','.','6','.','.','.','3']
-                            ,['4','.','.','8','.','3','.','.','1']
-                            ,['7','.','.','.','2','.','.','.','6']
-                            ,['.','6','.','.','.','.','2','8','.']
-                            ,['.','.','.','4','1','9','.','.','5']
-                            ,['.','.','.','.','8','.','.','7','9']];
-
-        Console.Write(IsValid(board1));
-        Console.Write(IsValid(board2));
+        Console.WriteLine(Run(board));
     }
 
-    public static bool IsValid(char[][] board)
+    public static bool Run(char[][] board)
     {
-        // validate all rows
-        foreach(var i in Enumerable.Range(0,9))
+        bool AddToSet(HashSet<char> set, char item)
         {
-            var rowItems = board[i].Where(c => c != '.').ToArray();
-            var set = new HashSet<char>();
+            if (item == '.')
+                return true;
+            if (set.Contains(item))
+                return false;
+            set.Add(item);
+            return true;
+        }
 
-            foreach(var item in rowItems)
+        HashSet<char> oneToNineSet = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+        // check the rows
+        foreach (var row in board)
+        {
+            HashSet<char> seen = [];
+            foreach (char c in row)
             {
-                if(set.Contains(item))
-                {
+                if (!AddToSet(seen, c))
                     return false;
-                }
-                set.Add(item);
             }
         }
 
-        // validate all columns
-        foreach(var col in Enumerable.Range(0,9))
+        // check the cols
+        foreach (var col in Enumerable.Range(0, 9))
         {
-            var set = new HashSet<char>();
-            foreach(var row in Enumerable.Range(0,9))
+            HashSet<char> seen = [];
+            foreach (var row in Enumerable.Range(0, 9))
             {
-                var item = board[row][col];
-                if(item == '.') 
-                {
-                    continue;
-                }
-
-                if(set.Contains(item))
-                {
+                if (!AddToSet(seen, board[row][col]))
                     return false;
-                }
-                set.Add(item);
             }
         }
 
-        // Validate all 3*3 blocks
-        // divide the block into 3 by 3 grids each containg a 3*3 block 
-        Dictionary<(int row,int col), HashSet<char>> map = [];
-
-        foreach(var i in Enumerable.Range(0,9))
+        // check each 3x3 grid
+        foreach (var i in Enumerable.Range(0, 3))
         {
-            foreach(var j in Enumerable.Range(0,9))
+            foreach (var j in Enumerable.Range(0, 3))
             {
-                // find the larger block location
-                var row = i / 3;
-                var col = j / 3;
-
-                var key = (row,col);
-                var value = board[i][j];
-
-                if(value == '.')
+                HashSet<char> seen = [];
+                for (int row = i * 3; row < (i * 3) + 3; row++)
                 {
-                    continue;
-                }
-
-                if(map.ContainsKey(key))
-                {
-                    if(map[key].Contains(value))
+                    for (int col = j * 3; col < (j * 3) + 3; col++)
                     {
-                        return false;
+                        if (!AddToSet(seen, board[row][col]))
+                            return false;
                     }
-                    map[key].Add(value);
-                }
-                else
-                {
-                    map.Add(key, [value]);
                 }
             }
         }

@@ -1,4 +1,4 @@
-namespace leetcode.easy;
+namespace leetcode.Easy;
 
 public class StockPrice
 {

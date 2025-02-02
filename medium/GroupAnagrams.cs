@@ -1,45 +1,34 @@
-using System;
-using System.Collections.Generic;
+﻿namespace ConsoleApp1.Medium;
 
-namespace leetcode.medium;
-
-public class GroupAnagrams
+internal class GroupAnagrams
 {
-    public static List<List<string>> GroupAnagramMethod(string[] strs)
+    public static void Test()
     {
-        var anagrams = new Dictionary<string, List<string>>();
+        GroupAnagramsTest(["eat", "tea", "tan", "ate", "nat", "bat"])
+            .ToList()
+            .ForEach(x => Console.WriteLine(string.Join("\t", x)));
+    }
 
-        foreach (var s in strs)
+    public static IList<IList<string>> GroupAnagramsTest(string[] strs)
+    {
+        Dictionary<string, IList<string>> anagrams = [];
+
+        foreach (var str in strs)
         {
-            var count = new char[26]; // count each char occurence in s
-            foreach (var c in s)
+            char[] charArr = new char[26];
+
+            foreach (var c in str)
             {
-                count[c - 'a']++;
+                charArr[c - 'a']++;
             }
 
-            var hash = new string(count);
-
-            if (!anagrams.ContainsKey(hash))
-            {
-                anagrams[hash] = new List<string>();
-            }
-
-            anagrams[hash].Add(s);
+            var key = new string(charArr);
+            if (anagrams.TryGetValue(key, out var value))
+                value?.Add(str);
+            else
+                anagrams[key] = [str];
         }
 
         return anagrams.Values.ToList();
-    }
-
-    public static void Test()
-    {
-        string[] exampleData = { "eat", "tea", "tan", "ate", "nat", "bat" };
-
-        List<List<string>> result = GroupAnagramMethod(exampleData);
-
-        Console.WriteLine("Grouped Anagrams:");
-        foreach (List<string> group in result)
-        {
-            Console.WriteLine(string.Join(", ", group));
-        }
     }
 }

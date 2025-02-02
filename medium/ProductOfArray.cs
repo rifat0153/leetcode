@@ -1,38 +1,20 @@
-namespace leetcode.medium;
+﻿namespace ConsoleApp1.Medium;
 
-public class ProductOfArray
+internal class ProductOfArray
 {
-    public int[] CalculateProductOfArray(int[] nums)
-    {
-        int[] result = new int[nums.Length];
-
-        // calculate the prefixes
-        int prefix = 1;
-        for (int i = 0; i < nums.Length; i++)
-        {
-            result[i] = prefix;
-            prefix *= nums[i];
-        }
-
-        // calcualte the postfix
-        int postfix = 1;
-        for (int i = nums.Length - 1; i >= 0; i--)
-        {
-            result[i] = result[i] * postfix;
-            postfix *= nums[i];
-        }
-
-        return result;
-    }
-
     public static void Test()
     {
-        var productOfArray = new ProductOfArray();
-        var testArray = new int[] { 1, 2, 3, 4 };
-        var products = productOfArray.CalculateProductOfArray(testArray);
-        foreach (var item in products)
-        {
-            Console.Write($"{item},");
-        }
+        int[] nums = [1, 2, 4, 6];
+
+        Console.WriteLine(string.Join(", ", ProductExceptSelf(nums)));
+    }
+
+    public static int[] ProductExceptSelf(int[] nums)
+    {
+        var total = nums.Aggregate(1, (acc, curr) => acc * curr, acc => acc);
+
+        Console.WriteLine(total);
+
+        return nums.Select(x => total / x).ToArray();
     }
 }
