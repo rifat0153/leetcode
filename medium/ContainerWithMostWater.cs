@@ -1,10 +1,8 @@
-using System;
-
 namespace Leetcode.Medium;
 
 public class ContainerWithMostWater
 {
-    public int MaxArea(int[] height)
+    public int MaxArea2(int[] height)
     {
         int left = 0;
         int right = height.Length - 1;
@@ -24,6 +22,26 @@ public class ContainerWithMostWater
             {
                 right--;
             }
+        }
+
+        return maxArea;
+    }
+
+    public int MaxArea(int[] height)
+    {
+        int maxArea = 0;
+        int l = 0;
+        int r = height.Length - 1;
+
+        while (l < r)
+        {
+            var area = Math.Abs((l - r) * Math.Min(height[l], height[r]));
+            maxArea = Math.Max(area, maxArea);
+
+            if (height[l] < height[r])
+                l++;
+            else
+                r--;
         }
 
         return maxArea;

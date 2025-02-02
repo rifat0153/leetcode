@@ -2,7 +2,7 @@ namespace Leetcode.Easy;
 
 public class BuySellStock
 {
-    public int MaxProfit(int[] prices)
+    public int MaxProfit2(int[] prices)
     {
         if (prices.Length < 2)
         {
@@ -25,6 +25,26 @@ public class BuySellStock
                 maxProfit = Math.Max(maxProfit, prices[right] - prices[left]);
                 right++;
             }
+        }
+
+        return maxProfit;
+    }
+
+    public int MaxProfit(int[] prices)
+    {
+        int l = 0;
+        int r = 1;
+        int maxProfit = 0;
+
+        while (r < prices.Length)
+        {
+            int profit = prices[r] - prices[l];
+            maxProfit = Math.Max(profit, maxProfit);
+
+            if (profit >= 0)
+                r++;
+            else
+                l++;
         }
 
         return maxProfit;
