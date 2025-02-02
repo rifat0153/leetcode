@@ -1,4 +1,4 @@
-namespace leetcode.interview;
+namespace Leetcode.interview;
 
 public class LongestSubstringWithoutRepeatingCharacters
 {

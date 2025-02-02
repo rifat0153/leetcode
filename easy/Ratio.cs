@@ -1,4 +1,4 @@
-namespace leetcode.Easy;
+namespace Leetcode.Easy;
 
 public class Ratio
 {

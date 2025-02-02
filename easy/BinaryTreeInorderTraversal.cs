@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace leetcode.easy;
+namespace Leetcode.Easy;
 
 // Definition for a binary tree node.
 public class TreeNode(int x)

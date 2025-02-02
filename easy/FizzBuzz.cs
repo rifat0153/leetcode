@@ -1,4 +1,4 @@
-namespace leetcode.easy;
+namespace Leetcode.Easy;
 
 public class FizzBuzz
 {
@@ -23,7 +23,7 @@ public class FizzBuzz
                 var x when x % 3 == 0 && x % 5 == 0 => "FizzBuzz",
                 var x when x % 3 == 0 => "Fizz",
                 var x when x % 5 == 0 => "Buzz",
-                _ => i.ToString()
+                _ => i.ToString(),
             };
         }
 

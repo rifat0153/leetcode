@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.DesignPatterns.Specification;
+﻿namespace Leetcode.DesignPatterns.Specification;
 
 public delegate bool Specification<T>(T item);
 

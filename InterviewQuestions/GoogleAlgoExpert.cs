@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.InterviewQuestions;
+﻿namespace Leetcode.InterviewQuestions;
 
 using System.Linq;
 using Amenity = string;

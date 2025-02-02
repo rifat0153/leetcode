@@ -1,7 +1,7 @@
-﻿// using leetcode.easy;
-using leetcode.easy;
-using leetcode.medium;
-using leetcode.hard;
-using leetcode.interview;
+﻿// using Leetcode.easy;
+using Leetcode.Easy;
+using Leetcode.Hard;
+using Leetcode.interview;
+using Leetcode.Medium;
 
 BuySellStock.Test();

@@ -1,4 +1,4 @@
-namespace ConsoleApp1.Easy;
+namespace Leetcode.Easy;
 
 public class ContainsDuplicate
 {

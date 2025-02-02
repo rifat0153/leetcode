@@ -1,4 +1,4 @@
-namespace leetcode.medium;
+namespace Leetcode.Medium;
 
 public class TwoSum2
 {
@@ -7,17 +7,18 @@ public class TwoSum2
         int left = 0;
         int right = numbers.Length - 1;
 
-        while(left < right)
+        while (left < right)
         {
-            if(numbers[left] + numbers[right]  > target )
+            if (numbers[left] + numbers[right] > target)
             {
                 right--;
             }
-            else if (numbers[left] + numbers[right]  < target )
+            else if (numbers[left] + numbers[right] < target)
             {
                 left++;
             }
-            else {
+            else
+            {
                 return [left++, right++];
             }
         }
@@ -34,7 +35,7 @@ public class TwoSum2
         var testCases = new Tuple<int[], int>[]
         {
             new Tuple<int[], int>(new int[] { 2, 7, 11, 15 }, 9),
-            new Tuple<int[], int>(new int[] { 3, 2, 4 }, 6)
+            new Tuple<int[], int>(new int[] { 3, 2, 4 }, 6),
         };
 
         // Expected results

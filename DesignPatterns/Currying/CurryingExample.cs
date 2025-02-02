@@ -1,7 +1,7 @@
-﻿using ConsoleApp1.DesignPatterns.Models;
-using LanguageExt;
+﻿using LanguageExt;
+using Leetcode.DesignPatterns.Models;
 
-namespace ConsoleApp1.DesignPatterns.Currying;
+namespace Leetcode.DesignPatterns.Currying;
 
 internal class CurryingExample
 {

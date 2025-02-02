@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using LanguageExt.TypeClasses;
 
-namespace ConsoleApp1.Medium;
+namespace Leetcode.Medium;
 
 internal class LongestConsecutiveSequence
 {

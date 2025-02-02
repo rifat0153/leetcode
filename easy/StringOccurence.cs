@@ -1,4 +1,4 @@
-namespace leetcode.easy;
+namespace Leetcode.Easy;
 
 // Find the Index of the First Occurrence in a String
 public class StringOccurence

@@ -1,6 +1,6 @@
-﻿using ConsoleApp1.DesignPatterns.Models;
+﻿using Leetcode.DesignPatterns.Models;
 
-namespace ConsoleApp1.DesignPatterns.Specification;
+namespace Leetcode.DesignPatterns.Specification;
 
 internal static class BookSpecifications
 {

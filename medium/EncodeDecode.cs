@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace leetcode.medium;
+namespace Leetcode.Medium;
 
 public class EncodeDecode
 {

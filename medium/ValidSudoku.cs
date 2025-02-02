@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Medium;
+﻿namespace Leetcode.Medium;
 
 internal static class ValidSudoku
 {

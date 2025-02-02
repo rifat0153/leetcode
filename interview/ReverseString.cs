@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace leetcode.interview;
+namespace Leetcode.interview;
 
 // Q: Reverse a string.
 public class ReverseString

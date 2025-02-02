@@ -6,7 +6,7 @@ This repository contains solutions for various problems from LeetCode. The solut
 
 The workspace has the following structure:
 
-easy/ - Contains solutions for easy problems medium/ - Contains solutions for medium problems hard/ - Contains solutions for hard problems Program.cs - The main entry point for the application leetcode.csproj - The C# project file leetcode.sln - The solution file
+easy/ - Contains solutions for easy problems medium/ - Contains solutions for medium problems hard/ - Contains solutions for hard problems Program.cs - The main entry point for the application Leetcode.csproj - The C# project file Leetcode.sln - The solution file
 
 ## Running the Solutions
 

@@ -1,4 +1,4 @@
-namespace leetcode.hard;
+namespace Leetcode.Hard;
 
 public class TrappingRainWater
 {

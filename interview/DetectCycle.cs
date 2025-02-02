@@ -1,4 +1,4 @@
-namespace leetcode.interview;
+namespace Leetcode.interview;
 
 // Definition for singly-linked list.
 public class ListNode

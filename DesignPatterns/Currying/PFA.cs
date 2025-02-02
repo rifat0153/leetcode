@@ -1,9 +1,8 @@
-﻿namespace ConsoleApp1.DesignPatterns.Currying;
+﻿namespace Leetcode.DesignPatterns.Currying;
 
 using System;
 using System.Linq;
 using LanguageExt;
-
 
 // --- Domain Models ---
 public record Product(string Name, decimal Price);
@@ -54,23 +53,31 @@ public static class Program
         [
             new Product("Laptop", 1200.00m),
             new Product("Mouse", 25.00m),
-            new Product("Keyboard", 45.00m)
+            new Product("Keyboard", 45.00m),
         ];
 
         // Example orders
         Order[] orders =
         [
             new Order("ORD123", "John Doe", products),
-            new Order("ORD124", "Jane Smith", products)
+            new Order("ORD124", "Jane Smith", products),
         ];
 
         // Curried function to generate invoices in different formats
-        var curriedGenerateInvoice = Prelude.curry<FormatOrderDelegate, Order[], string>(InvoiceGenerator.GenerateInvoice);
+        var curriedGenerateInvoice = Prelude.curry<FormatOrderDelegate, Order[], string>(
+            InvoiceGenerator.GenerateInvoice
+        );
 
         // Partially apply the curried function for different formats
-        Func<Order[], string> generateCsvInvoice = curriedGenerateInvoice(InvoiceFormatters.CsvFormatter);
-        Func<Order[], string> generateJsonInvoice = curriedGenerateInvoice(InvoiceFormatters.JsonFormatter);
-        Func<Order[], string> generatePdfInvoice = curriedGenerateInvoice(InvoiceFormatters.PdfFormatter);
+        Func<Order[], string> generateCsvInvoice = curriedGenerateInvoice(
+            InvoiceFormatters.CsvFormatter
+        );
+        Func<Order[], string> generateJsonInvoice = curriedGenerateInvoice(
+            InvoiceFormatters.JsonFormatter
+        );
+        Func<Order[], string> generatePdfInvoice = curriedGenerateInvoice(
+            InvoiceFormatters.PdfFormatter
+        );
 
         // Generate invoices
         string csvInvoice = generateCsvInvoice(orders);

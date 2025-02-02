@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.DataStructures;
+﻿namespace Leetcode.DataStructures;
 
 internal class CustomQueue<T>
 {

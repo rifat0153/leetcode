@@ -1,4 +1,4 @@
-namespace leetcode.easy;
+namespace Leetcode.Easy;
 
 public class IntersectionTwoArrays
 {

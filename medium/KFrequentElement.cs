@@ -1,4 +1,4 @@
-namespace leetcode.medium;
+namespace Leetcode.Medium;
 
 public class KFrequentElement
 {

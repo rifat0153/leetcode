@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace leetcode.interview;
+namespace Leetcode.interview;
 
 public class ReverseWordsInSentence
 {

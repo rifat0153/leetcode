@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.DesignPatterns.Models;
+﻿namespace Leetcode.DesignPatterns.Models;
 
 internal record Book(string Title, Author[] Authors, int Stock, int Rating);
 
