@@ -4,4 +4,4 @@ using Leetcode.Hard;
 using Leetcode.interview;
 using Leetcode.Medium;
 
-BuySellStock.Test();
+Permutation.Test();
