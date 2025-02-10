@@ -31,9 +31,8 @@
             "type": "process",
             "args": [
                 "watch",
-                "run",
                 "--project",
-                "${workspaceFolder}/leetcode.sln"
+                "${workspaceFolder}/leetcode.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
