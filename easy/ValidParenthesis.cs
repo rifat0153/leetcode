@@ -23,7 +23,7 @@ public class ValidParenthesis
             }
 
             // pop the stack and see if the starting Parenthesis is found
-            var val = charsStack.Pop();
+            charsStack.TryPop(out var val);
 
             if (c == ')' && val != '(')
             {

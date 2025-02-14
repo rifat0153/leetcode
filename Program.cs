@@ -4,7 +4,7 @@ using Leetcode.Hard;
 using Leetcode.interview;
 using Leetcode.Medium;
 
-Permutation.Test();
+MinimumWindowSubstring.Test();
 
 while (true)
 {
