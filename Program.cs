@@ -4,7 +4,7 @@ using Leetcode.Hard;
 using Leetcode.interview;
 using Leetcode.Medium;
 
-GenerateParentheses.Test();
+DailyTemps.Test();
 
 while (true)
 {
