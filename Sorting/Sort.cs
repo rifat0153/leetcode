@@ -32,40 +32,36 @@ internal class Sort
 
         for (int i = arr.Length - 1; i > 0; i--)
         {
-            // Swap the root (maximum value) with the last element
             (arr[0], arr[i]) = (arr[i], arr[0]);
 
-            // Re-heapify the reduced heap
             MaxHeapify(arr, i, 0);
         }
 
         static void BuildMaxHeap(int[] arr)
         {
-            var heapSize = arr.Length;
-            var start = (heapSize / 2) - 1; // Start from the last non-leaf node
+            var firstNonLeafNode = (arr.Length / 2) - 1;
 
-            for (int i = start; i >= 0; i--)
+            for (int i = firstNonLeafNode; i >= 0; i--)
             {
-                MaxHeapify(arr, heapSize, i);
+                MaxHeapify(arr, arr.Length, i);
             }
         }
 
-        static void MaxHeapify(int[] arr, int heapSize, int i)
+        static void MaxHeapify(int[] arr, int heapSize, int pos)
         {
-            int left = 2 * i + 1; // left child
-            int right = 2 * i + 2; // right child
+            var left = 2 * pos + 1;
+            var right = 2 * pos + 2;
 
-            int max = i;
+            int max = pos;
 
-            if (left < heapSize && arr[left] > arr[i])
+            if (left < heapSize && arr[left] > arr[max])
                 max = left;
-
             if (right < heapSize && arr[right] > arr[max])
                 max = right;
 
-            if (max != i)
+            if (max != pos)
             {
-                (arr[max], arr[i]) = (arr[i], arr[max]);
+                (arr[pos], arr[max]) = (arr[max], arr[pos]);
                 MaxHeapify(arr, heapSize, max);
             }
         }

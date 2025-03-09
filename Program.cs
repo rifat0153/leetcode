@@ -3,8 +3,9 @@ using Leetcode.Easy;
 using Leetcode.Hard;
 using Leetcode.interview;
 using Leetcode.Medium;
+using Leetcode.Sorting;
 
-LargestRectangleInHistogram.Test();
+Sort.Test();
 
 while (true)
 {
