@@ -4,7 +4,7 @@ using Leetcode.Hard;
 using Leetcode.interview;
 using Leetcode.Medium;
 
-DailyTemps.Test();
+LargestRectangleInHistogram.Test();
 
 while (true)
 {
