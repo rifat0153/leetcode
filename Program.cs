@@ -5,7 +5,7 @@ using Leetcode.interview;
 using Leetcode.Medium;
 using Leetcode.Sorting;
 
-CarFleet.Test();
+LargestRectangleInHistogram.Test();
 
 while (true)
 {

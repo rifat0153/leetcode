@@ -19,23 +19,28 @@ internal class LargestRectangleInHistogram
 
         for (int i = 0; i < heights.Length; i++)
         {
-            var height = heights[i];
-
-            int start = i; // Track where the rectangle starts
-            while (stack.TryPeek(out var last) && last.height > height)
+            var h = heights[i];
+            if (stack.Count == 0)
             {
-                stack.Pop();
-                area = Math.Max(last.height * (i - last.index), area);
-                start = last.index; // Extend the start index
+                stack.Push((i, h));
+                area = Math.Max(area, h);
+                continue;
             }
 
-            stack.Push((start, height));
+            int start = i;
+            while (stack.TryPeek(out var last) && last.height > h)
+            {
+                stack.Pop();
+                area = Math.Max(area, (i - last.index) * last.height);
+                start = last.index;
+            }
+
+            stack.Push((start, h));
         }
 
-        while (stack.TryPeek(out var item))
+        foreach (var item in stack)
         {
-            stack.Pop();
-            area = Math.Max(item.height * (heights.Length - item.index), area);
+            area = Math.Max(area, (heights.Length - item.index) * item.height);
         }
 
         return area;
