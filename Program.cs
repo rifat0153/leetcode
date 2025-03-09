@@ -5,7 +5,7 @@ using Leetcode.interview;
 using Leetcode.Medium;
 using Leetcode.Sorting;
 
-Sort.Test();
+CarFleet.Test();
 
 while (true)
 {

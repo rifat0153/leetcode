@@ -6,9 +6,15 @@ internal class CarFleet
 {
     public static void Test()
     {
-        int target = 12;
-        int[] position = [10, 8, 0, 5, 3];
-        int[] speed = [2, 4, 1, 1, 3];
+        //int target = 12;
+        //int[] position = [10, 8, 0, 5, 3];
+        //int[] speed = [2, 4, 1, 1, 3];
+        //int target = 10;
+        //int[] position = [3];
+        //int[] speed = [3];
+        int target = 10;
+        int[] position = [6, 8];
+        int[] speed = [3, 2];
 
         Console.WriteLine(CarFleetTest(target, position, speed));
     }
@@ -18,26 +24,24 @@ internal class CarFleet
         if (position.Length == 0)
             return 0;
 
-        Stack<(int pos, int speed)> stack = new();
+        Stack<double> stack = [];
 
-        var pairs = position.Zip(speed, (p, s) => (p, s)).OrderByDescending(x => x.p);
+        var pairs = position.Zip(speed, (p, s) => (pos: p, speed: s)).OrderByDescending(p => p.pos);
 
-        foreach (var pair in pairs)
+        foreach (var item in pairs)
         {
-            if (!stack.TryPeek(out var prevPair))
+            double time = (double)(target - item.pos) / item.speed;
+            if (stack.Count == 0)
             {
-                stack.Push(pair);
+                stack.Push(time);
                 continue;
             }
 
-            stack.Push(pair);
+            stack.TryPeek(out var currSlowestTime);
 
-            var prevTime = (double)(target - prevPair.pos) / prevPair.speed;
-            var currTime = (double)(target - pair.p) / pair.s;
-
-            if (currTime <= prevTime)
+            if (time >= currSlowestTime)
             {
-                stack.Pop();
+                stack.Push(time);
             }
         }
 
