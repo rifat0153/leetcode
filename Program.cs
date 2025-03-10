@@ -5,7 +5,7 @@ using Leetcode.interview;
 using Leetcode.Medium;
 using Leetcode.Sorting;
 
-LargestRectangleInHistogram.Test();
+BSTSuccessor.Test();
 
 while (true)
 {
