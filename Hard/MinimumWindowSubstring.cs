@@ -14,45 +14,44 @@ public class MinimumWindowSubstring
         if (s is "" || t is "" || t.Length > s.Length)
             return "";
 
-        int minLen = int.MaxValue;
-        int start = 0; // Store the start index of the min window
+        Dictionary<char, int> need = [];
+        foreach (var item in t)
+            need[item] = need.GetValueOrDefault(item, 0) + 1;
 
-        Dictionary<char, int> freq = [];
-        foreach (char c in t)
-            freq[c] = freq.GetValueOrDefault(c, 0) + 1;
-
-        Dictionary<char, int> window = [];
-        int need = t.Length;
-        int have = 0;
+        string? minWindow = null;
+        int count = t.Length;
         int l = 0;
+        Dictionary<char, int> have = [];
 
         for (int r = 0; r < s.Length; r++)
         {
             char c = s[r];
-            window[c] = window.GetValueOrDefault(c, 0) + 1;
+            have[c] = have.GetValueOrDefault(c, 0) + 1;
 
-            if (freq.ContainsKey(c) && window[c] == freq[c])
-                have++;
-
-            while (have == need)
+            if (need.TryGetValue(c, out int neededCount) && have[c] <= neededCount)
             {
-                if (r - l + 1 < minLen)
+                count--;
+            }
+
+            while (count == 0)
+            {
+                if (minWindow == null || r - l + 1 < minWindow.Length)
                 {
-                    minLen = r - l + 1;
-                    start = l; // Update the starting index
+                    minWindow = s[l..(r + 1)];
                 }
 
                 char leftChar = s[l];
-                window[leftChar]--;
+                have[leftChar]--;
 
-                if (freq.TryGetValue(leftChar, out int value) && window[leftChar] < value)
-                    have--;
-
+                if (need.ContainsKey(leftChar) && have[leftChar] < need[leftChar])
+                {
+                    count++;
+                }
                 l++;
             }
         }
 
-        return minLen == int.MaxValue ? "" : s.Substring(start, minLen);
+        return minWindow ?? "";
     }
 
     public static string GetMinLen2(string s, string t)
