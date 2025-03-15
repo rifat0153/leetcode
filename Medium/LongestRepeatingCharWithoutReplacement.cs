@@ -12,11 +12,12 @@ internal class LongestRepeatingCharWithoutReplacement
     {
         Dictionary<char, int> freq = [];
         int max = 0;
-
         int l = 0;
+
         for (int r = 0; r < s.Length; r++)
         {
-            freq[s[r]] = freq.GetValueOrDefault(s[r], 0) + 1;
+            char c = s[r];
+            freq[c] = freq.GetValueOrDefault(c, 0) + 1;
 
             while ((r - l + 1) - freq.Values.Max() > k)
             {
