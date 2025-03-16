@@ -47,4 +47,22 @@ internal class CarFleet
 
         return stack.Count;
     }
+
+    public static int CarFleetTestFunctional(int target, int[] position, int[] speed) =>
+        position
+            .Zip(speed, (p, s) => (pos: p, speed: s))
+            .OrderByDescending(x => x.pos)
+            .Aggregate(
+                new Stack<double>(),
+                (stack, pair) =>
+                {
+                    var timeToDest = (double)(target - pair.pos) / pair.speed;
+                    if (stack.Count == 0 || timeToDest > stack.Peek())
+                    {
+                        stack.Push(timeToDest);
+                    }
+                    return stack;
+                }
+            )
+            .Count;
 }
