@@ -14,35 +14,29 @@ internal class LargestRectangleInHistogram
 
     public static int LargestRectangleArea(int[] heights)
     {
-        int area = 0;
         Stack<(int index, int height)> stack = [];
+        int max = 0;
 
         for (int i = 0; i < heights.Length; i++)
         {
-            var h = heights[i];
-            if (stack.Count == 0)
-            {
-                stack.Push((i, h));
-                area = Math.Max(area, h);
-                continue;
-            }
-
+            int h = heights[i];
             int start = i;
             while (stack.TryPeek(out var last) && last.height > h)
             {
-                stack.Pop();
-                area = Math.Max(area, (i - last.index) * last.height);
-                start = last.index;
+                var (index, height) = stack.Pop();
+                max = Math.Max(max, height * (i - index));
+                start = index;
             }
 
             stack.Push((start, h));
         }
 
-        foreach (var item in stack)
+        foreach (var (index, height) in stack)
         {
-            area = Math.Max(area, (heights.Length - item.index) * item.height);
+            var area = height * (heights.Length - index);
+            max = Math.Max(max, area);
         }
 
-        return area;
+        return max;
     }
 }
