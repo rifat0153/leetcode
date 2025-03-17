@@ -7,7 +7,7 @@ using Leetcode.interview;
 using Leetcode.Medium;
 using Leetcode.Sorting;
 
-MinimumWindowSubstring.Test();
+ReverseLinkedList.Test();
 
 while (true)
 {
