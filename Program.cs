@@ -7,7 +7,7 @@ using Leetcode.interview;
 using Leetcode.Medium;
 using Leetcode.Sorting;
 
-ReverseLinkedList.Test();
+MergeTwoLists.Test();
 
 while (true)
 {
