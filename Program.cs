@@ -7,7 +7,7 @@ using Leetcode.interview;
 using Leetcode.Medium;
 using Leetcode.Sorting;
 
-MergeTwoLists.Test();
+MaximumAverageSubArray1.Test();
 
 while (true)
 {
