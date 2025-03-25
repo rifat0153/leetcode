@@ -7,7 +7,7 @@ using Leetcode.interview;
 using Leetcode.Medium;
 using Leetcode.Sorting;
 
-MaximumAverageSubArray1.Test();
+BinarySearch.Test();
 
 while (true)
 {
