@@ -7,7 +7,7 @@ using Leetcode.interview;
 using Leetcode.Medium;
 using Leetcode.Sorting;
 
-BinarySearch.Test();
+Search2DMatrix.Test();
 
 while (true)
 {
